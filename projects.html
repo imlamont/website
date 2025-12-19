@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/carousel.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+    <nav>
+        <div class="logo">imlamont</div>
+        <ul class="nav-links">
+            <li><a href="./art.html">Art</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./index.html">Home</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <header class="hero">
+            <h1>Projects</h1>
+            <p class="subtitle">A collection of some major projects over the years.</p>
+        </header>
+
+        <section class="spotlight-section">
+            <h2>Featured Projects</h2>
+            
+            <div id="penncloud" class="spotlight-card">
+                <div class="media-container">
+                    <div class="carousel-wrapper mini-carousel">
+                        <button class="carousel-btn prev" aria-label="Previous Image">&#10094;</button>
+                        <div class="carousel-track">
+                            <img src="./resources/penncloud/penncloud-admin.png" alt="penncloud-admin">
+                            <img src="./resources/penncloud/penncloud-files.png" alt="penncloud-files">
+                        </div>
+                        <button class="carousel-btn next" aria-label="Next Image">&#10095;</button>
+                    </div>
+                </div>
+                <div class="spotlight-content">
+                    <h3>PennCloud</h3>
+                    <p>
+                        PennCloud is a fully distributed webmail and 
+                        cloud storage system built from scratch. The 
+                        core technology of the system is a fault-tolerant
+                        key value store based off of google's BigTable
+                        system. The cloud storage system allows for 
+                        files up to 10MB and the webmail system is a 
+                        fully functional email client. For a full list
+                        of features and design considerations see below.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">Distributed System</span>
+                        <span class="tag">Networking</span>
+                    </div>
+                    <br>
+                    <a href="./resources/penncloud/penncloud-report.pdf">Features and design considerations &rarr;</a>
+                </div>
+            </div>
+
+            <div id="img2gps" class="spotlight-card">
+                <div class="media-container">
+                    <div class="carousel-wrapper mini-carousel">
+                        <button class="carousel-btn prev" aria-label="Previous Image">&#10094;</button>
+                        <div class="carousel-track">
+                            <img src="resources/img2gps/img2gps-map.png" alt="img2gps map view">
+                            <img src="resources/img2gps/img2gps-graph.png" alt="img2gps graph view">
+                        </div>
+                        <button class="carousel-btn next" aria-label="Next Image">&#10095;</button>
+                    </div>
+                </div>
+                <div class="spotlight-content">
+                    <h3>IMG2GPS</h3>
+                    <p>
+                        IMG2GPS is a an ensambled, pipelined 
+                        artifical intlegence mode based on a Convolutional
+                        Neural Network (CNN). Over 500 images were collected
+                        from the block around the Penn engineering quad and
+                        included the GPS location from those images. This model
+                        starts by classifying the images into "regions" and 
+                        then uses an ensemble of region specified models to 
+                        hone in location. See the project report below for 
+                        more details.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Data Science</span>
+                    </div>
+                    <br>
+                    <a href="./resources/img2gps/img2gps-report.pdf">Project report &rarr;</a>
+                    <br>
+                    <a href="https://huggingface.co/IanAndJohn/region_ensemble_model/tree/main">HuggingFace repo &rarr;</a>
+                    <br>
+                    <a href="https://huggingface.co/datasets/IanAndJohn/current_images">HuggingFace dataset &rarr;</a>
+                </div>
+            </div>
+
+            <div id="pennos" class="spotlight-card">
+                <div class="media-container">
+                    <img src="resources/pennos/pennos-running.png" alt="pennos-running"></image>
+                    
+                </div>
+                <div class="spotlight-content">
+                    <h3>PennOS</h3>
+                    <p>
+                        PennOS is a fully functional Operating system 
+                        including kernel level API, file system,
+                        and user-space terminal. This project was a 
+                        group effort for the CIS 5480 course at Penn and 
+                        required deep colaboration in the 4 person team.
+                        I primarily worked on kernel level device I/O and 
+                        user-space to kernel-space communication, namely 
+                        the shell (but I worked on many parts of the code 
+                        as well). For a full feature description and the 
+                        direct Doxygen documentation for the project, see below.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">C</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Operating Systems</span>
+                    </div>
+                    <br>
+                    <a href="./resources/pennos/pennos-README.md">PennOS feature description &rarr;</a>
+                    <br>
+                    <a href="./resources/pennos/pennos-CompanionDocument.pdf">PennOS Doxygen documentation &rarr;</a>
+                </div>
+            </div>
+
+            <div id="cpu" class="spotlight-card">
+                <div class="media-container">
+                    <img src="resources/cpu/cpu-gtkwave.png" alt="cpu-gtkwave"></image>
+                </div>
+                <div class="spotlight-content">
+                    <h3>ICPU-v0</h3>
+                    <p>
+                        The ICPU-v0 (Ian CPU) is a superscalar, multistaged
+                        pipelined processor for the RISC-V RV32I (core integer)
+                        and RV32M (Mutiplication/division extension) instruction
+                        sets. The processor runs at 5 MHz with a ~80ns worst 
+                        case negative slack. This processor has been fully 
+                        implemented on a field programmable gate array.
+                        This processor was developed over a semester in 
+                        the Penn CIS 4710 course, check out the full 
+                        incremental design as well as the final product below.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Processor Design</span>
+                        <span class="tag">SystemVerilog</span>
+                        <span class="tag">Hardware</span>
+                    </div>
+                    <br>
+                    <a href="https://github.com/imlamont/cis-4710-hw/tree/main">Full incremental repository &rarr;</a>
+                    <br>
+                    <a href="https://github.com/imlamont/cis-4710-hw/blob/main/hw6-axilmem/DatapathAxilMemory.sv">Final processor code &rarr;</a>
+                </div>
+            </div>
+
+            <div id="miniminecraft" class="spotlight-card">
+                <div class="media-container">
+                    <div class="carousel-wrapper mini-carousel">
+                        <button class="carousel-btn prev" aria-label="Previous Image">&#10094;</button>
+                        <div class="carousel-track">
+                            <img src="./resources/miniminecraft/miniminecraft-house.png" alt="miniminecraft-house">
+                            <video controls>
+                                <source src="./resources/miniminecraft/miniminecraft-vid.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <button class="carousel-btn next" aria-label="Next Image">&#10095;</button>
+                    </div>
+                </div>
+                <div class="spotlight-content">
+                    <h3>MiniMinecraft</h3>
+                    <p>
+                        MiniMinecraft is a scaled down clone of the 
+                        video game Minecraft. This project won the 
+                        MiniMinecraft Hall of Fame award for the semester.
+                        Core systems include: optimized physics engine, 
+                        multithreaded terrain generation, compressed game 
+                        save data format, and complex shader pipeline. 
+                        The game uses QT for windowing and the GUI and 
+                        rendering uses the OpenGL pipeline. For a full 
+                        list of features see the video above.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">OpenGL</span>
+                        <span class="tag">Game</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="generator" class="spotlight-card">
+                <div class="media-container">
+                    <div class="carousel-wrapper mini-carousel">
+                        <button class="carousel-btn prev" aria-label="Previous Image">&#10094;</button>
+                        <div class="carousel-track">
+                            <video controls>
+                                <source src="./resources/generator/generator-onvice.mp4" type="video/mp4">
+                            </video>
+                            <img src="./resources/generator/generator-badpic.jpg" alt="generator-badpic">
+                        </div>
+                        <button class="carousel-btn next" aria-label="Next Image">&#10095;</button>
+                    </div>
+                </div>
+                <div class="spotlight-content">
+                    <h3>Striling Generator</h3>
+                    <p>
+                        This is a stirling engine which turns heat
+                        from the rounded area at the back of the engine
+                        into rotation through the heating and cooling
+                        of air in the chamber. The rotating flywheel 
+                        has magnets on its perimeter which when placed
+                        inside the stator and coils creates alternating
+                        current electricity. This generator outputs 3 
+                        phases of 0.2Vpp, 40hz sine waves which when 
+                        rectified achieve 1.5V direct current. This
+                        project is a work in progress and I hope to increase
+                        the power generation soon. This engine and generator
+                        were entirely designed and manufactured by me. 
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Mechanical Engineering</span>
+                        <span class="tag">Electrical Engineering</span>
+                        <span class="tag">Machining</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+        <section id="More Projects">
+            <h2>More Projects</h2>
+            <div class="grid">
+                
+                <div id="dataset" class="card">
+                    <div class="media-container">
+                        <div class="carousel-wrapper mini-carousel">
+                            <button class="carousel-btn prev" aria-label="Previous Image">&#10094;</button>
+                            <div class="carousel-track">
+                                <img src="./resources/ocean-dataset/dataset-erdiagram.png" alt="dataset-erdiagram">
+                                <video controls>
+                                    <source src="./resources/ocean-dataset/dataset-vid.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <button class="carousel-btn next" aria-label="Next Image">&#10095;</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ocean Biodiversity & Climate Change Explorer</h3>
+                        <p>
+                            A dataset combining the World Ocean Database
+                            (WOD) and Ocean Biodiversity Information System
+                            (OBIS) datasets for use by researches to 
+                            study the effect of climate change on biodiversity.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">WebDev</span>
+                        </div>
+                        <br>
+                        <a href="./resources/ocean-dataset/dataset-report.pdf">Project report &rarr;</a>
+                    </div>
+                </div>
+
+                <div id="mechatronics" class="card">
+                    <div class="media-container">
+                        <div class="carousel-wrapper mini-carousel">
+                            <button class="carousel-btn prev" aria-label="Previous Image">&#10094;</button>
+                            <div class="carousel-track">
+                                <img src="./resources/mechatronics/mechatronics-pic.png" alt="mechatronics-pic">
+                                <video controls>
+                                    <source src="./resources/mechatronics/mechatronics-vid.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <button class="carousel-btn next" aria-label="Next Image">&#10095;</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>IDK: Mechatronics competition robot</h3>
+                        <p>
+                            IDK is an autonomous or directly 
+                            controllable robot for the mechatronics
+                            final competiton. It uses a an ESP32
+                            microcontroller and does most of its 
+                            sensing through time of flight sensors.
+                            See the report below for full details.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Mechatronics</span>
+                            <span class="tag">Electrical Engineering</span>
+                            <span class="tag">Embedded Systems</span>
+                        </div>
+                        <br>
+                        <a href="./resources/mechatronics/mechatronics-report.pdf">Project report &rarr;</a>
+                    </div>
+                </div>
+
+                <div id="triton" class="card">
+                    <div class="media-container">
+                        <img src="./resources/triton/triton-firstslide.png" alt="triton-firstslide">
+                    </div>
+                    <div class="card-content">
+                        <h3>An Analysis of Triton VS CUDA</h3>
+                        <p>
+                            A report compairing the machine
+                            instructions generated by CUDA and
+                            Triton, a novel GPU programming 
+                            language with suprising speed and 
+                            efficency.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">CUDA</span>
+                            <span class="tag">GPU</span>
+                            <span class="tag">PTX</span>
+                        </div>
+                        <br>
+                        <a href="./resources/triton/triton-slides.pdf">Slides &rarr;</a>
+                    </div>
+                </div>
+
+                <div id="micromaya" class="card">
+                    <div class="media-container">
+                        <img src="./resources/micromaya/micromaya-pic.png" alt="micromaya-pic">
+                    </div>
+                    <div class="card-content">
+                        <h3>MicroMaya</h3>
+                        <p>
+                            MicroMaya is a basic mesh editor that 
+                            allows for simple operations and OBJ
+                            file viewing.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">OpenGL</span>
+                            <span class="tag">Mesh Editing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pennsat" class="card">
+                    <div class="media-container">
+                        <img src="./resources/pennsat/pennsat-runtime.png" alt="pennsat-dpll">
+                    </div>
+                    <div class="card-content">
+                        <h3>PennSat</h3>
+                        <p>
+                            PennSat is a basic SAT solver 
+                            implemented using the DPLL 
+                            algorithm. (NOTE: graph above is
+                            runtime on random 3 CNF formulas with 
+                            n=75 variables and m=324 clauses)
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SAT Solving</span>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="./resources/pennsat/PennSAT.py">Source code &rarr;</a>
+                </div>
+
+                <div id="svtonet" class="card">
+                    <div class="media-container">
+                        <video controls>
+                            <source src="./resources/svtonet/svtonet-vid.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="card-content">
+                        <h3>SV to Net</h3>
+                        <p>
+                            SV to Net is a partial SystemVerilog
+                            compiler. It converts abstract circuit
+                            representations in SystemVerilog into 
+                            physical SPICE netlists, optimized by a 
+                            constraint programming system. This is
+                            a work in progress.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SAT Solving</span>
+                            <span class="tag">SystemVerilog</span>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="https://github.com/imlamont/sv-to-net">Repository &rarr;</a>
+                </div>
+
+
+
+            </div>
+        </section>
+        
+    </div>
+
+    <footer>
+        &copy; 2025 Ian Lamont
+    </footer>
+</body>
+</html>

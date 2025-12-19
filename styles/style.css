@@ -1,0 +1,415 @@
+/* --- CSS VARIABLES (Theming Engine) --- */
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --accent-color: #60a5fa; /* Lighter Blue */
+    --border-color: #333333;
+    --nav-bg: rgba(18, 18, 18, 0.9);
+    --dark-text-color: #333333;
+}
+
+/* --- GLOBAL STYLES --- */
+* { box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
+
+body {
+    margin: 0;
+    font-family: "Satoshi-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: var(--accent-color); }
+a:hover { text-decoration: underline; }
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+.logo { 
+    font-weight: bold; 
+    font-size: 1.2rem;
+    font-family: "Satoshi-Bold";
+}
+
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; margin: 0; }
+
+/* Theme Toggle Button */
+#theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+#theme-toggle:hover { background-color: var(--card-bg); }
+
+/* --- SECTIONS --- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header.hero {
+    text-align: center;
+    padding: 4rem 0;
+    font-family: "Satoshi-Bold";
+}
+
+h2 { 
+    font-family: "Satoshi-Bold";
+}
+h2 > a {
+    color: var(--text-color); 
+}
+
+h1 { 
+    font-size: 2.5rem; 
+    margin-bottom: -1rem; 
+}
+.subtitle { 
+    color: var(--accent-color); 
+    font-size: 1.2rem; 
+}
+
+/* --- GRID LAYOUT --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.card h3 { margin-top: 0; }
+.tags { margin-top: 1rem; font-size: 0.85rem; opacity: 0.8; }
+.tag {
+    background: var(--border-color); /* subtle background */
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin: 5px;
+    display: inline-block;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .grid { grid-template-columns: 1fr; }
+}
+
+/* --- NEW CAROUSEL STYLES (Full Width Slider) --- */
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden; /* Rounds the corners of the whole slider */
+    border: 1px solid var(--border-color);
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    
+    /* REMOVED the padding trick. We want images flush with the container */
+    padding: 0; 
+    margin: 0;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* THE SLIDE */
+.project-slide {
+    flex: 0 0 100%; /* Takes up 100% of the wrapper width */
+    position: relative;
+    scroll-snap-align: center;
+    height: 400px; /* Fixed height for consistency */
+}
+
+/* THE IMAGE */
+.project-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers area without stretching */
+    display: block;
+}
+
+/* THE TEXT OVERLAY */
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    
+    /* Gradient background so text is readable on any image */
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: white;
+    text-align: left;
+}
+
+.slide-overlay h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px black
+}
+
+.slide-overlay p {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    max-width: 600px;
+    opacity: 0.9;
+    text-shadow: 2px 2px 4px black
+}
+
+/* BUTTONS */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
+
+/* Mobile Height Adjustment */
+@media (max-width: 600px) {
+    .project-slide { height: 300px; }
+    .slide-overlay { padding: 1.5rem; }
+    .slide-overlay h3 { font-size: 1.2rem; }
+}
+
+/* --- MEDIA STYLES (Images & Video) --- */
+
+/* 1. Reset for all media in cards to ensure they fit */
+.card .media-container {
+    margin: -1.5rem -1.5rem 1rem -1.5rem; /* Pulls media to the edges of the card */
+    /* border-bottom: 1px solid var(--border-color); */
+    overflow: hidden;
+    border-radius: 8px 8px 0 0; /* Match card corners */
+}
+
+/* 2. Make images and videos responsive */
+.card img, 
+.card video {
+    width: 100%;
+    height: 200px; /* Fixed height for grid alignment */
+    object-fit: contain; /* Crops nicely */
+    display: block;
+}
+
+/* --- SPOTLIGHT SECTION (Featured Project) --- */
+
+.spotlight-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+/* Large video container for spotlight */
+.spotlight-card .media-container {
+    width: 100%;
+}
+
+/* Update the spotlight video/image rule */
+.spotlight-card video, 
+.spotlight-card img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.spotlight-content {
+    padding: 2rem;
+}
+
+.spotlight-content h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+/* Highlight the active link in nav */
+.nav-links a.active {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* --- MINI CAROUSEL (Inside Cards) --- */
+
+/* 1. Ensure the wrapper fits the card */
+.mini-carousel {
+    width: 100%;
+    height: 100%; /* Fill the media-container */
+    border: none; /* Remove border since the card already has one */
+    border-radius: 0; /* Let the card handle corners */
+}
+
+/* 2. Sizing the images */
+.mini-carousel .carousel-track img {
+    /* Force each image to be the full width of the card */
+    flex: 0 0 100%; 
+    
+    /* Respect your height constraint */
+    height: 400px; 
+    object-fit: contain;
+    
+    /* Remove default margins */
+    margin: 0;
+    display: block;
+}
+
+.mini-carousel .carousel-track video {
+    /* Force each image to be the full width of the card */
+    flex: 0 0 100%; 
+    
+    /* Respect your height constraint */
+    height: 400px; 
+    object-fit: contain;
+    
+    /* Remove default margins */
+    margin: 0;
+    display: block;
+}
+
+/* 3. Make buttons smaller for the card view */
+.mini-carousel .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for contrast */
+}
+
+.mini-carousel .carousel-btn.prev { left: 10px; }
+.mini-carousel .carousel-btn.next { right: 10px; }
+
+/* 1. Create the two-column structure */
+.layout-wrapper {
+    display: flex;
+    gap: 3rem; /* Space between sidebar and content */
+    margin-top: 2rem;
+    align-items: flex-start; /* Important for sticky to work */
+}
+
+/* 2. Style the Sidebar */
+.sidebar {
+    width: 200px; /* Fixed width */
+    flex-shrink: 0; /* Prevent it from getting squished */
+    
+    /* STICKY MAGIC */
+    position: sticky;
+    top: 100px; /* How far from the top of the window it sticks (below nav) */
+    
+    padding: 1rem;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 0.8rem;
+}
+
+.sidebar a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.sidebar a:hover {
+    color: var(--accent-color);
+    padding-left: 5px; /* Slight movement effect */
+}
+
+/* 3. Main Content takes remaining space */
+.content-area {
+    flex-grow: 1; /* Fills the rest of the width */
+    min-width: 0; /* Prevents overflow issues in flex containers */
+}
+
+/* 4. Smooth Scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Offsets scroll so headers aren't hidden behind the fixed Nav */
+}
+
+/* --- MOBILE ADJUSTMENT --- */
+@media (max-width: 768px) {
+    .layout-wrapper {
+        flex-direction: column; /* Stack sidebar on top of content */
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative; /* Stop sticking on mobile */
+        top: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 2rem;
+    }
+}
