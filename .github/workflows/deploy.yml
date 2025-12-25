@@ -1,14 +1,19 @@
+name: Deploy to AWS S3
+
+on:
+  push:
+    branches:
+      - release
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1. Check out your code (WITH LFS ENABLED)
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          lfs: true  # <--- THIS IS THE MAGIC LINE
+          lfs: true
 
-      # 2. Configure AWS Credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -16,7 +21,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      # 3. Upload files to S3
       - name: Sync to S3
         run: |
           aws s3 sync . s3://imlamont.com --delete --exclude ".git/*" --exclude ".github/*" --exclude ".gitattributes" --exclude "README.md"
