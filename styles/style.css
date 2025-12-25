@@ -413,3 +413,41 @@ html {
         margin-bottom: 2rem;
     }
 }
+
+/* --- ABOUT SECTION LAYOUT --- */
+
+.about-wrapper {
+    display: flex;
+    align-items: center; /* Vertically centers the text with the image */
+    gap: 3rem;           /* Space between text and image */
+    justify-content: space-between;
+}
+
+.about-text {
+    flex: 1; /* Takes up remaining space */
+}
+
+.about-image img {
+    width: 200px;        /* Fixed width */
+    height: 200px;       /* Fixed height */
+    border-radius: 50%;  /* Makes it a perfect circle */
+    object-fit: cover;   /* Crops image to fit circle without squishing */
+    border: 3px solid var(--accent-color); /* Optional: Accent border */
+    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .about-wrapper {
+        flex-direction: column-reverse; /* Puts image ON TOP of text on mobile */
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .about-image img {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto; /* Centers the image */
+    }
+}
